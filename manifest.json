@@ -1,0 +1,19 @@
+{
+  "name": "Costeo de Platillos",
+  "short_name": "Costeo",
+  "description": "Costea tus platillos sumando el peso y costo de cada ingrediente.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f7f7f5",
+  "theme_color": "#0f766e",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
