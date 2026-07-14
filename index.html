@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0f766e" />
+<meta name="description" content="Costea tus platillos: suma el peso y costo de cada ingrediente y obtén el precio base del producto final." />
+<title>Costeo de Platillos</title>
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icons/icon.svg" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ===== Vista: Lista de platillos ===== -->
+<section id="view-list" class="view">
+  <header class="app-header">
+    <h1>Mis Platillos</h1>
+  </header>
+
+  <main class="content">
+    <div id="empty-state" class="empty-state hidden">
+      <p>Aún no tienes platillos guardados.</p>
+      <p class="empty-state-sub">Crea uno para empezar a costear.</p>
+    </div>
+    <ul id="dish-list" class="dish-list"></ul>
+  </main>
+
+  <button id="btn-new-dish" class="fab" aria-label="Nuevo platillo">
+    <span class="fab-icon">+</span>
+  </button>
+</section>
+
+<!-- ===== Vista: Editor de platillo ===== -->
+<section id="view-editor" class="view hidden">
+  <header class="app-header">
+    <button id="btn-back" class="icon-btn" aria-label="Volver">←</button>
+    <input id="dish-name" class="dish-name-input" type="text" placeholder="Nombre del platillo" maxlength="60" />
+    <button id="btn-delete-dish" class="icon-btn danger hidden" aria-label="Eliminar platillo">🗑</button>
+  </header>
+
+  <main class="content">
+    <ul id="ingredient-list" class="ingredient-list"></ul>
+
+    <button id="btn-add-ingredient" class="btn-secondary btn-add-ingredient">
+      + Agregar ingrediente
+    </button>
+  </main>
+
+  <footer class="total-bar">
+    <div class="total-label">Precio base del platillo</div>
+    <div id="total-amount" class="total-amount">$0.00</div>
+  </footer>
+</section>
+
+<!-- ===== Plantilla: fila de ingrediente ===== -->
+<template id="ingredient-row-template">
+  <li class="ingredient-row">
+    <div class="ingredient-main">
+      <input type="text" class="ing-name" placeholder="Ingrediente (ej. Harina)" maxlength="40" />
+      <button class="ing-remove" aria-label="Eliminar ingrediente">✕</button>
+    </div>
+    <div class="ingredient-fields">
+      <label class="field">
+        <span class="field-label">Peso por porción (g)</span>
+        <input type="number" class="ing-grams" inputmode="decimal" min="0" step="any" placeholder="0" />
+      </label>
+      <label class="field">
+        <span class="field-label">Costo por kilo</span>
+        <div class="field-currency">
+          <span class="currency-sign">$</span>
+          <input type="number" class="ing-cost" inputmode="decimal" min="0" step="any" placeholder="0.00" />
+        </div>
+      </label>
+    </div>
+    <div class="ingredient-subtotal">
+      <span>Subtotal</span>
+      <span class="ing-subtotal-amount">$0.00</span>
+    </div>
+  </li>
+</template>
+
+<script src="js/app.js"></script>
+</body>
+</html>
